@@ -9,11 +9,13 @@ Sergey loffe, Christian Szegedy (ICML 2015)
 ## Normalization 
 Normalization은 데이터의 범위를 조정하는 방법으로 이를 통해 값 자체를 0과 1사이의 값으로 조정할 수 있다.
 X’ = X-X(min) / X(max)-X(min) 이와 같은 식을 통해 범위를 조정하게 된다.
+
 ![image](https://user-images.githubusercontent.com/33116818/115121684-06803e00-9fef-11eb-84fe-c0cea8c7c7b0.png)
 
 ## Standardization
 Standardization은 데이터의 범위를 조정하는 방법으로 이를 통해 평균이 0, 분산이 1이 되도록 조정할 수 있다.
 X’ = X-μ / σ 이와 같은 식을 통해 범위를 조정하게 된다.
+
 ![image](https://user-images.githubusercontent.com/33116818/115121708-21eb4900-9fef-11eb-9db4-d3c5f922a9e0.png)
 
 ## Dataset shift
