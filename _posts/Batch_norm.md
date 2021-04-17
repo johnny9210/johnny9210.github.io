@@ -20,12 +20,14 @@ X’ = X-μ / σ 이와 같은 식을 통해 범위를 조정하게 된다.
 예를 들어 성별 간 구분되는 특징 A를 분류하는 Task가 있다고 한다.
 Train Data = 성별 간 특징을 나타내는 데이터 + 청년층으로 이루어져 있고, Test Data = 성별 간 특징을 나타내는 데이터 + 노년층으로 이루어져 있다.
 ![image](https://user-images.githubusercontent.com/33116818/115121739-3cbdbd80-9fef-11eb-86c2-e706926fb30c.png)
+
 이럴 경우 분포가 다른 데이터로 인해 성능 하락의 문제를 일으키게 된다.
 
 Dataset shift는 3가지 종류로 나눌 수 있다.
 1)	독립 변수에서의 분포 변화 : Covariate Shift
     Internal Covariate Shift
     ![image](https://user-images.githubusercontent.com/33116818/115121773-71317980-9fef-11eb-8d8d-7b18de884cb0.png)
+    
     각 layer를 통과하는 Input의 분포가 변화하는 현상을 맗나다. 
     본 논문에서는 activation function으로 Sigmoid를 사용한다. 
     역전파를 시행할 때 Sigmoid를 편미분하게 되는데 layer를 통과하다 Gradient Vanishing Problem이 발생하게 된다. (서로 다른 분포에 최적화하는 과정에서 Sigmoid의 양 극단으로 치우칠 확률이 증가)
@@ -36,6 +38,7 @@ Dataset shift는 3가지 종류로 나눌 수 있다.
 ## Batch Normalization
 1) Channel 별 feature를 독립적으로 Normalize
 ![image](https://user-images.githubusercontent.com/33116818/115121801-98884680-9fef-11eb-842b-f6750918bde1.png)
+
 Normalize를 하면 기존의 범위보다는 줄어들게 된다.
 Sigmoid Function을 통과할 때 범위가 줄어들게 되면 위의 그림에서 빨간색 부분에만 activation Function이 적용된다. 그렇게 되면 빨간색 부분은 Linear한 부분으로 Nonlinear함수의 효과를 제대로 받을 수 없다. 이를 위해 감마와 베타를 추가해서 보완하는 형식을 취한다.
 2) Mini-batch 단위로 Normalize
@@ -43,6 +46,7 @@ Sigmoid Function을 통과할 때 범위가 줄어들게 되면 위의 그림에
 
 ### Batch Normalization : Algorithm
 ![image](https://user-images.githubusercontent.com/33116818/115121834-beade680-9fef-11eb-9725-e380dcb63a87.png)
+
 Batch Normalizatio의 Algorithm은 위와 같다.
 
 BN Layer
